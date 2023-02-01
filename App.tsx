@@ -15,11 +15,17 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import MobileNum from './src/components/MobileNo';
+import OtpFun from './src/components/Otp';
+import Main from './src/containers/screens/Main';
 const App = () => {
   return (
-    <View>
-      <Text> Hello ......</Text>
-    </View>
+    // <View>
+    //   <Text> Hello ......</Text>
+    // </View>
+    // <OtpFun />
+    <Main />
+    // <MobileNum />
   );
 };
 
