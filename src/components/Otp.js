@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 25
     },
     otp: {
         flexDirection: 'row',
@@ -63,7 +64,8 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     inputValue: {
-        fontSize: 20
+        fontSize: 20,
+        padding: 5
     },
     head: {
         fontSize: 20,
