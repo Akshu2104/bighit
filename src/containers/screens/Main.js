@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { image } from '../../assets/json/Images';
+import { image } from '../../assets/json/Index';
 import Loading from '../../components/Load';
 import LoginSuccess from '../../components/LoginSucces';
 import MobileNum from '../../components/MobileNo';

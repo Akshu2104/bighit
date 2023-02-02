@@ -1,13 +1,14 @@
 import AnimatedLottieView from 'lottie-react-native';
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { gif } from '../assets/json/Index';
 
 const LoginSuccess = ({ setFlag, flag }) => {
 
     return (
         <View style={styles.container}>
             <Text style={styles.change}>Login Success!</Text>
-            <AnimatedLottieView source={require('../assets/json/95029-success.json')} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => setFlag(2)} />
+            <AnimatedLottieView source={gif.greenTick} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => setFlag(2)} />
         </View>
     );
 }

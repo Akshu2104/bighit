@@ -6,3 +6,8 @@ export const image = {
     loginSqr: require('../images/loginSqr.png'),
     loginCrv: require('../images/loginCrv.svg'),
 };
+
+export const gif = {
+    blueTriangle: require('./lf30_editor_qfhlc5be.json'),
+    greenTick: require('./95029-success.json')
+}
