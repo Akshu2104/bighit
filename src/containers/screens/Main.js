@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Loading from '../../components/Load';
+import LoginSuccess from '../../components/LoginSucces';
 import MobileNum from '../../components/MobileNo';
 import OtpFun from '../../components/Otp';
 
@@ -9,33 +11,21 @@ const Main = () => {
     const [flag, setFlag] = useState(0)
     const [number, setNumber] = useState(null);
     const [otpValue, setOtpValue] = useState(null);
-    console.log('here---->', number, typeof (number), otpValue, typeof (otpValue))
+
     return (
         <View style={styles.container}>
             {flag === 0 ?
                 <MobileNum setNumber={setNumber} flag={flag} setFlag={setFlag} />
-                : <OtpFun setOtpValue={setOtpValue} number={number} flag={flag} setFlag={setFlag} />}
+                : flag === 1 ? <OtpFun setOtpValue={setOtpValue} number={number} flag={flag} setFlag={setFlag} />
+                    : flag === 3 ? <Loading setFlag={setFlag} flag={flag} />
+                        : <LoginSuccess setFlag={setFlag} flag={flag} />}
         </View>
-
-        // <View style={styles.container}>
-        //     <TextInput
-        //         style={styles.input}
-        //         onChangeText={(text) => setValue(text)}
-        //         // onBlur={(text) => dateFormat(text)}
-        //         value={value}
-        //         placeholder="Mobile no"
-        //     />
-        //     <TouchableOpacity style={styles.input}>
-        //         <Text style={styles.timer}>Show Logs</Text>
-        //     </TouchableOpacity>
-        // </View>
     );
 }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-
     },
     timer: {
         fontSize: 22,
@@ -52,4 +42,5 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
 })
+
 export default Main;

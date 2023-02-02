@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import OtpInputs from 'react-native-otp-inputs';
 
 const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
+
     const [value, setValue] = useState('');
-    // const [flag, setFlag] = useState(0)
-    console.log('otp value', value, value?.length)
+    const onOTP = (otp) => {
+        setValue(otp)
+        setOtpValue(otp)
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.head}>Enter 6 digit OTP sent on</Text>
@@ -13,18 +17,20 @@ const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
                 <Text>{number}</Text><Text style={styles.change} onPress={() => { setFlag(0) }}>Change</Text>
             </View>
             <OtpInputs style={styles.otp}
-                handleChange={(code) => { setValue(code), setOtpValue(code) }}
+                handleChange={(code) => { onOTP(code) }}
                 numberOfInputs={6}
-                inputContainerStyles={[styles.inputOtp, { borderColor: value !== '123456' && value?.length !== 0 ? '#EA4A04' : '#E2E2E2' }]}
+                inputContainerStyles={[styles.inputOtp, { borderColor: value !== '123456' && value?.length !== 0 ? '#EA4A04' : value === '123456' ? '#0062FF' : '#E2E2E2' }]}
                 inputStyles={styles.inputValue}
             />
             {value !== '123456' && value?.length !== 0 && <Text style={styles.error}>Please enter valid OTP</Text>}
-            <TouchableOpacity style={styles.onSubmit} onPress={() => { value === '123456' && console.log('submit') }}>
+            <TouchableOpacity style={styles.onSubmit} onPress={() => { value === '123456' ? setFlag(3) : setValue(null) }}>
                 <Text style={styles.submit}>Submit</Text>
             </TouchableOpacity>
-            {value !== '123456' ? <Text style={[styles.resend, { color: '#0062FF' }]}>Resend OTP</Text>
-                : <Text style={[styles.resend, { color: '#808080' }]}>Resend OTP 30s</Text>}
-        </View>
+            {
+                value !== '123456' && value?.length !== 0 ? <Text style={[styles.resend, { color: '#0062FF' }]}>Resend OTP</Text>
+                    : <Text style={[styles.resend, { color: '#808080' }]}>Resend OTP 30s</Text>
+            }
+        </View >
     );
 }
 const styles = StyleSheet.create({
@@ -86,7 +92,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 8,
-        marginRight: 9
+        marginRight: 9,
     }
 })
 export default OtpFun;

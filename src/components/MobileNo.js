@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
 const MobileNum = ({ number, setNumber, flag, setFlag }) => {
 
     const [value, setValue] = useState('');
-    // const [flag, setFlag] = useState(0)
-    console.log('num value', value, value?.length)
+    const onNum = (mbno) => {
+        setValue(mbno)
+        setNumber(mbno)
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.head}>
@@ -13,7 +16,7 @@ const MobileNum = ({ number, setNumber, flag, setFlag }) => {
             </View>
             <TextInput
                 style={[styles.input, { borderColor: value?.length === 10 || value?.length === 0 ? '#2C2C2C' : '#EA4A04' }]}
-                onChangeText={(num) => { setValue(num), setNumber(num) }}
+                onChangeText={(num) => { onNum(num) }}
                 value={value}
                 keyboardType='phone-pad'
                 placeholder="Mobile no"
@@ -67,8 +70,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         marginBottom: 25,
-        color: '#2C2C2C',
-        fontSize: 22,
     },
     wlcm: {
         color: '#2C2C2C',
