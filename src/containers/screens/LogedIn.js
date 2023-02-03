@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Image } from 'react-native';
 import { image } from '../../assets/json/Index';
 
 const Loged = () => {
