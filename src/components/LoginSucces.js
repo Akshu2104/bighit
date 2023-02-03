@@ -25,7 +25,7 @@ const LoginSuccess = ({ setFlag, flag }) => {
             <Text style={styles.change}>{`${Login.loged}`}</Text>
             <Animated.View
                 style={{ opacity: fadeAnim }}>
-                <AnimatedLottieView source={gif.greenTick} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => setTimeout(() => setFlag(4), 800)} />
+                <AnimatedLottieView source={gif.greenTick} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => setTimeout(() => setFlag(4), 600)} />
             </Animated.View>
         </View>
     );
