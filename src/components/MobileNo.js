@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Mobile } from '../assets/json/text';
 
 const MobileNum = ({ number, setNumber, flag, setFlag }) => {
 
@@ -12,7 +13,7 @@ const MobileNum = ({ number, setNumber, flag, setFlag }) => {
     return (
         <View style={styles.container}>
             <View style={styles.head}>
-                <Text style={styles.wlcm}>Welcome to </Text><Text style={styles.change}>BigHit!</Text>
+                <Text style={styles.wlcm}>{`${Mobile.welcome}`} </Text><Text style={styles.change}>{`${Mobile.bighit}`}</Text>
             </View>
             <TextInput
                 style={[styles.input, { borderColor: value?.length === 10 || value?.length === 0 ? '#2C2C2C' : '#EA4A04' }]}
@@ -22,10 +23,10 @@ const MobileNum = ({ number, setNumber, flag, setFlag }) => {
                 placeholder="Mobile no"
             />
             {value?.length === 10 || value?.length === 0 ?
-                <Text style={styles.sending}>We will send you 6 digit OTP</Text> :
-                <Text style={styles.error}>Please enter a valid phone number</Text>}
+                <Text style={styles.sending}>{`${Mobile.info}`}</Text> :
+                <Text style={styles.error}>{`${Mobile.mb_error}`}</Text>}
             <TouchableOpacity style={styles.onSubmit} onPress={() => { value?.length === 10 ? setFlag(1) : setValue(null) }}>
-                <Text style={styles.submit}>Let's Go</Text>
+                <Text style={styles.submit}>{`${Mobile.let_go}`}</Text>
             </TouchableOpacity>
         </View>
     );

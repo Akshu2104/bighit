@@ -2,6 +2,7 @@ import AnimatedLottieView from 'lottie-react-native';
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Text, Animated } from 'react-native';
 import { gif } from '../assets/json/Index';
+import { Login } from '../assets/json/text';
 
 const LoginSuccess = ({ setFlag, flag }) => {
 
@@ -21,10 +22,10 @@ const LoginSuccess = ({ setFlag, flag }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.change}>Login Success!</Text>
+            <Text style={styles.change}>{`${Login.loged}`}</Text>
             <Animated.View
                 style={{ opacity: fadeAnim }}>
-                <AnimatedLottieView source={gif.greenTick} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => setFlag(2)} />
+                <AnimatedLottieView source={gif.greenTick} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => setTimeout(() => setFlag(2), 800)} />
             </Animated.View>
         </View>
     );

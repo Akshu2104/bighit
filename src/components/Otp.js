@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import OtpInputs from 'react-native-otp-inputs';
+import { OTP } from '../assets/json/text';
 
 const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
 
@@ -12,9 +13,9 @@ const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.head}>Enter 6 digit OTP sent on</Text>
+            <Text style={styles.head}>{`${OTP.enter}`}</Text>
             <View style={styles.mbno}>
-                <Text>{number}</Text><Text style={styles.change} onPress={() => { setFlag(0) }}>Change</Text>
+                <Text>{number}</Text><Text style={styles.change} onPress={() => { setFlag(0) }}>{`${OTP.change}`}</Text>
             </View>
             <OtpInputs style={styles.otp}
                 handleChange={(code) => { onOTP(code) }}
@@ -22,13 +23,13 @@ const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
                 inputContainerStyles={[styles.inputOtp, { borderColor: value !== '123456' && value?.length !== 0 ? '#EA4A04' : value === '123456' ? '#0062FF' : '#E2E2E2' }]}
                 inputStyles={styles.inputValue}
             />
-            {value !== '123456' && value?.length !== 0 && <Text style={styles.error}>Please enter valid OTP</Text>}
+            {value !== '123456' && value?.length !== 0 && <Text style={styles.error}>{`${OTP.otp_error}`}</Text>}
             <TouchableOpacity style={styles.onSubmit} onPress={() => { value === '123456' ? setFlag(3) : setValue(null) }}>
-                <Text style={styles.submit}>Submit</Text>
+                <Text style={styles.submit}>{`${OTP.submit}`}</Text>
             </TouchableOpacity>
             {
-                value !== '123456' && value?.length !== 0 ? <Text style={[styles.resend, { color: '#0062FF' }]}>Resend OTP</Text>
-                    : <Text style={[styles.resend, { color: '#808080' }]}>Resend OTP 30s</Text>
+                value !== '123456' && value?.length !== 0 ? <Text style={[styles.resend, { color: '#0062FF' }]}>{`${OTP.resend}`}</Text>
+                    : <Text style={[styles.resend, { color: '#808080' }]}>{`${OTP.resend}`} 30s</Text>
             }
         </View >
     );
