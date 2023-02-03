@@ -1,13 +1,28 @@
 import AnimatedLottieView from 'lottie-react-native';
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useRef } from 'react';
+import { View, StyleSheet, Animated } from 'react-native';
 import { gif } from '../assets/json/Index';
 
 const Loading = ({ setFlag, flag }) => {
 
+    const fadeAnim = useRef(new Animated.Value(1)).current;
+
+    const fadeOut = () => {
+        Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 1000,
+            useNativeDriver: true,
+        }).start();
+        setTimeout(() => setFlag(4), 1300)
+    };
+
+
     return (
         <View style={styles.container}>
-            <AnimatedLottieView source={gif.blueTriangle} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => setFlag(4)} />
+            <Animated.View
+                style={{ opacity: fadeAnim }}>
+                <AnimatedLottieView source={gif.blueTriangle} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => fadeOut()} />
+            </Animated.View>
         </View>
     );
 }

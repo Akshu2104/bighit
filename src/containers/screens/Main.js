@@ -8,7 +8,6 @@ import OtpFun from '../../components/Otp';
 
 const Main = () => {
 
-    const [value, setValue] = useState();
     const [flag, setFlag] = useState(0)
     const [number, setNumber] = useState(null);
     const [otpValue, setOtpValue] = useState(null);
