@@ -13,7 +13,7 @@ const Loading = ({ setFlag, flag }) => {
             duration: 1000,
             useNativeDriver: true,
         }).start();
-        setTimeout(() => setFlag(4), 1300)
+        setTimeout(() => setFlag(4), 1200)
     };
 
 

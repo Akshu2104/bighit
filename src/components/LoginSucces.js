@@ -15,7 +15,7 @@ const LoginSuccess = ({ setFlag, flag }) => {
     const fadeIn = () => {
         Animated.timing(fadeAnim, {
             toValue: 1,
-            duration: 1200,
+            duration: 1300,
             useNativeDriver: true,
         }).start();
     };
