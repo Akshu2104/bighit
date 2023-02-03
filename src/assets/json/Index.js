@@ -4,7 +4,7 @@ export const image = {
     bottomBack: require('../images/background.png'),
     back: require('../images/back.png'),
     loginSqr: require('../images/loginSqr.png'),
-    loginCrv: require('../images/loginCrv.svg'),
+    loginCrv: require('../images/loginCrv.png'),
 };
 
 export const gif = {

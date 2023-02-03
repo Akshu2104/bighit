@@ -5,6 +5,7 @@ import Loading from '../../components/Load';
 import LoginSuccess from '../../components/LoginSucces';
 import MobileNum from '../../components/MobileNo';
 import OtpFun from '../../components/Otp';
+import Loged from './LogedIn';
 
 const Main = () => {
 
@@ -13,19 +14,20 @@ const Main = () => {
     const [otpValue, setOtpValue] = useState(null);
 
     return (
-        <View style={styles.mainBox}>
-            <Image source={image.topback} style={styles.topImage} />
-            <Image source={image.bigHit} style={styles.logo} />
-            <Image source={image.back} style={styles.player} />
-            <Image source={image.bottomBack} style={styles.bottomImage} />
-            <View style={styles.container}>
-                {flag === 0 ?
-                    <MobileNum setNumber={setNumber} flag={flag} setFlag={setFlag} />
-                    : flag === 1 ? <OtpFun setOtpValue={setOtpValue} number={number} flag={flag} setFlag={setFlag} />
-                        : flag === 3 ? <Loading setFlag={setFlag} flag={flag} />
-                            : <LoginSuccess setFlag={setFlag} flag={flag} />}
-            </View>
-        </View>
+        <>{flag === 2 ? <Loged /> :
+            <View style={styles.mainBox}>
+                <Image source={image.topback} style={styles.topImage} />
+                <Image source={image.bigHit} style={styles.logo} />
+                <Image source={image.back} style={styles.player} />
+                <Image source={image.bottomBack} style={styles.bottomImage} />
+                <View style={styles.container}>
+                    {flag === 0 ?
+                        <MobileNum setNumber={setNumber} flag={flag} setFlag={setFlag} />
+                        : flag === 1 ? <OtpFun setOtpValue={setOtpValue} number={number} flag={flag} setFlag={setFlag} />
+                            : flag === 3 ? <Loading setFlag={setFlag} flag={flag} />
+                                : <LoginSuccess setFlag={setFlag} flag={flag} />}
+                </View>
+            </View>}</>
     );
 }
 const styles = StyleSheet.create({
