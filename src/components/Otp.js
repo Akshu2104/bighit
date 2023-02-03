@@ -4,6 +4,7 @@ import OtpInputs from 'react-native-otp-inputs';
 import { OTP } from '../assets/json/text';
 
 const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
+    var otp = '123456'
     const [value, setValue] = useState('');
 
     const onOTP = (otp) => {
@@ -20,15 +21,15 @@ const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
             <OtpInputs style={styles.otp}
                 handleChange={(code) => { onOTP(code) }}
                 numberOfInputs={6}
-                inputContainerStyles={[styles.inputOtp, { borderColor: value !== '123456' && value?.length !== 0 ? '#EA4A04' : value === '123456' ? '#0062FF' : '#E2E2E2' }]}
+                inputContainerStyles={[styles.inputOtp, { borderColor: value !== otp && value?.length !== 0 ? '#EA4A04' : value === otp ? '#0062FF' : '#E2E2E2' }]}
                 inputStyles={styles.inputValue}
             />
-            {value !== '123456' && value?.length !== 0 && <Text style={styles.error}>{`${OTP.otp_error}`}</Text>}
-            <TouchableOpacity style={styles.onSubmit} onPress={() => { value === '123456' ? setFlag(2) : setValue(null) }}>
+            {value !== otp && value?.length !== 0 && <Text style={styles.error}>{`${OTP.otp_error}`}</Text>}
+            <TouchableOpacity style={styles.onSubmit} onPress={() => { value === otp ? setFlag(2) : setValue(null) }}>
                 <Text style={styles.submit}>{`${OTP.submit}`}</Text>
             </TouchableOpacity>
             {
-                value !== '123456' && value?.length !== 0 ? <Text style={[styles.resend, { color: '#0062FF' }]}>{`${OTP.resend}`}</Text>
+                value !== otp && value?.length !== 0 ? <Text style={[styles.resend, { color: '#0062FF' }]}>{`${OTP.resend}`}</Text>
                     : <Text style={[styles.resend, { color: '#808080' }]}>{`${OTP.resend}`} 30s</Text>
             }
         </View >

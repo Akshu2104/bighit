@@ -7,8 +7,9 @@ export const image = {
     loginCrv: require('../images/loginCrv.png'),
     profile1: require('../images/profile1.png'),
     profile2: require('../images/profile2.png'),
-    profile3: require('../images/profile3.png')
-
+    profile3: require('../images/profile3.png'),
+    player: require('../images/player.png'),
+    rectangle: require('../images/rectangle.png')
 };
 
 export const gif = {
