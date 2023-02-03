@@ -20,7 +20,7 @@ const MobileNum = ({ number, setNumber, flag, setFlag }) => {
                 onChangeText={(num) => { onNum(num) }}
                 value={value}
                 keyboardType='phone-pad'
-                placeholder="Mobile no"
+                placeholder={`${Mobile.mob_no}`}
             />
             {value?.length === 10 || value?.length === 0 ?
                 <Text style={styles.sending}>{`${Mobile.info}`}</Text> :

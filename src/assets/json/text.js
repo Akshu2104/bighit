@@ -4,7 +4,8 @@ export const Mobile = {
   bighit: "BigHit!",
   info: "We will send you 6 digit OTP",
   mb_error: "Please enter a valid phone number",
-  let_go: "Let's Go"
+  let_go: "Let's Go",
+  mob_no: "Mobile no"
 }
 export const OTP = {
   enter: "Enter 6 digit OTP sent on",

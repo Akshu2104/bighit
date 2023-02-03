@@ -4,8 +4,8 @@ import OtpInputs from 'react-native-otp-inputs';
 import { OTP } from '../assets/json/text';
 
 const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
-
     const [value, setValue] = useState('');
+
     const onOTP = (otp) => {
         setValue(otp)
         setOtpValue(otp)
@@ -24,7 +24,7 @@ const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
                 inputStyles={styles.inputValue}
             />
             {value !== '123456' && value?.length !== 0 && <Text style={styles.error}>{`${OTP.otp_error}`}</Text>}
-            <TouchableOpacity style={styles.onSubmit} onPress={() => { value === '123456' ? setFlag(3) : setValue(null) }}>
+            <TouchableOpacity style={styles.onSubmit} onPress={() => { value === '123456' ? setFlag(2) : setValue(null) }}>
                 <Text style={styles.submit}>{`${OTP.submit}`}</Text>
             </TouchableOpacity>
             {
