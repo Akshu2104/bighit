@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
-import { Mobile } from '../assets/json/text';
+import { Mobile } from '../utils/constants/Text';
 
 const MobileNum = ({ number, setNumber, flag, setFlag }) => {
 

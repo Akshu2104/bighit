@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { image } from '../../assets/json/Index';
+import { image } from '../../utils/constants/Index';
 import Loged from './LogedIn';
 import Main from './Main';
 

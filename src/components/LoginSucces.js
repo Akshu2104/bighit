@@ -1,8 +1,9 @@
 import AnimatedLottieView from 'lottie-react-native';
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Text, Animated } from 'react-native';
-import { gif } from '../assets/json/Index';
-import { Login } from '../assets/json/text';
+import { gif } from '../utils/constants/Index';
+import { Login } from '../utils/constants/Text';
+
 
 const LoginSuccess = ({ setFlag, flag }) => {
 

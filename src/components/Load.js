@@ -1,7 +1,7 @@
 import AnimatedLottieView from 'lottie-react-native';
 import React, { useRef } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
-import { gif } from '../assets/json/Index';
+import { gif } from '../utils/constants/Index';
 
 const Loading = ({ setFlag, flag }) => {
 

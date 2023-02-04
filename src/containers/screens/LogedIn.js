@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, Image, Animated, Easing, Text, ImageBackground } from 'react-native';
-import { image } from '../../assets/json/Index';
-import { Login } from '../../assets/json/text';
+import { image } from '../../utils/constants/Index';
+import { Login } from '../../utils/constants/Text';
 
 const Loged = () => {
     const backViewValue = new Animated.ValueXY({ x: 0, y: -200 })

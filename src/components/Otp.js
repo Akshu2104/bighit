@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import OtpInputs from 'react-native-otp-inputs';
-import { OTP } from '../assets/json/text';
+import { OTP } from '../utils/constants/Text';
 
 const OtpFun = ({ otpValue, setOtpValue, flag, setFlag, number }) => {
     var otp = '123456'
