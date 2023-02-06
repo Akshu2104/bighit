@@ -1,51 +1,56 @@
 import AnimatedLottieView from 'lottie-react-native';
-import React, { useEffect, useRef } from 'react';
-import { View, StyleSheet, Text, Animated } from 'react-native';
-import { gif } from '../utils/constants/Index';
-import { Login } from '../utils/constants/Text';
+import React, {useEffect, useRef} from 'react';
+import {View, StyleSheet, Text, Animated} from 'react-native';
+import {gif} from '../utils/constants/Index';
+import {Login} from '../utils/constants/Text';
+import {Colors} from '../utils/styles/Colors';
 
+const LoginSuccess = ({setFlag, flag}) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
-const LoginSuccess = ({ setFlag, flag }) => {
+  useEffect(() => {
+    fadeIn();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeIn = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1200,
+      useNativeDriver: true,
+    }).start();
+  };
 
-    useEffect(() => {
-        fadeIn()
-    }, [])
-
-    const fadeIn = () => {
-        Animated.timing(fadeAnim, {
-            toValue: 1,
-            duration: 1200,
-            useNativeDriver: true,
-        }).start();
-    };
-
-    return (
-        <View style={styles.container}>
-            <Text style={styles.change}>{`${Login.loged}`}</Text>
-            <Animated.View
-                style={{ opacity: fadeAnim }}>
-                <AnimatedLottieView source={gif.greenTick} style={styles.animate} autoPlay loop={false} onAnimationFinish={() => setTimeout(() => setFlag(4), 600)} />
-            </Animated.View>
-        </View>
-    );
-}
+  return (
+    <View style={styles.container}>
+      <Text style={styles.change}>{`${Login.loged}`}</Text>
+      <Animated.View style={{opacity: fadeAnim}}>
+        <AnimatedLottieView
+          source={gif.greenTick}
+          style={styles.animate}
+          autoPlay
+          loop={false}
+          onAnimationFinish={() => setTimeout(() => setFlag(4), 600)}
+        />
+      </Animated.View>
+    </View>
+  );
+};
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    change: {
-        color: '#2C2C2C',
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 50,
-    },
-    animate: {
-        width: 102,
-        height: 102,
-    }
-})
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  change: {
+    color: Colors.black,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 50,
+  },
+  animate: {
+    width: 102,
+    height: 102,
+  },
+});
 export default LoginSuccess;
