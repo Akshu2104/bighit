@@ -1,6 +1,6 @@
 import AnimatedLottieView from 'lottie-react-native';
 import React, {useEffect, useRef} from 'react';
-import {View, StyleSheet, Text, Animated} from 'react-native';
+import {View, StyleSheet, Text, Animated, Platform} from 'react-native';
 import {gif} from '../utils/constants/Index';
 import {Login} from '../utils/constants/Text';
 import {Colors} from '../utils/styles/Colors';
@@ -21,6 +21,10 @@ const LoginSuccess = ({setFlag, flag}) => {
     }).start();
   };
 
+  const onAnimate = () => {
+    setTimeout(() => setFlag(4), 600);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.change}>{`${Login.loged}`}</Text>
@@ -30,7 +34,7 @@ const LoginSuccess = ({setFlag, flag}) => {
           style={styles.animate}
           autoPlay
           loop={false}
-          onAnimationFinish={() => setTimeout(() => setFlag(4), 600)}
+          onAnimationFinish={() => onAnimate()}
         />
       </Animated.View>
     </View>
@@ -41,6 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    top: Platform.OS === 'ios' ? 0 : 70,
   },
   change: {
     color: Colors.black,

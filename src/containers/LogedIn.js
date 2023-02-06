@@ -7,10 +7,15 @@ import {
   Easing,
   Text,
   ImageBackground,
+  Dimensions,
+  Platform,
+  ScrollView,
 } from 'react-native';
-import {image} from '../../utils/constants/Index';
-import {Login} from '../../utils/constants/Text';
-import {Colors} from '../../utils/styles/Colors';
+import {image} from '../utils/constants/Index';
+import {Login} from '../utils/constants/Text';
+import {Colors} from '../utils/styles/Colors';
+
+const windowWidth = Dimensions.get('window').width;
 
 const Loged = () => {
   const backViewValue = new Animated.ValueXY({x: 0, y: -200});
@@ -20,24 +25,18 @@ const Loged = () => {
   useEffect(() => {
     Animated.timing(topViewValue, {
       toValue: {x: 0, y: 0},
-      duration: 600,
+      duration: 700,
       easing: Easing.linear,
       useNativeDriver: false,
     }).start();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
-  useEffect(() => {
     Animated.timing(backViewValue, {
       toValue: {x: 0, y: 0},
       duration: 400,
       easing: Easing.linear,
       useNativeDriver: false,
     }).start();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
-  useEffect(() => {
     Animated.timing(bottomViewValue, {
       toValue: {x: 0, y: 0},
       duration: 400,
@@ -46,28 +45,31 @@ const Loged = () => {
     }).start();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
-    <View style={styles.container}>
-      <Animated.View style={[styles.main, backViewValue.getLayout()]}>
-        <ImageBackground source={image.loginCrv} style={styles.curve}>
-          <Text style={styles.wlcm}>{Login.welcome}</Text>
-          <Text style={styles.big}>{Login.big}</Text>
-        </ImageBackground>
-        <Animated.View style={topViewValue.getLayout()}>
-          <Image source={image.loginSqr} style={styles.player} />
+    <ScrollView>
+      <View style={styles.container}>
+        <Animated.View style={[styles.main, backViewValue.getLayout()]}>
+          <ImageBackground source={image.loginCrv} style={styles.curve}>
+            <Text style={styles.wlcm}>{Login.welcome}</Text>
+            <Text style={styles.big}>{Login.big}</Text>
+          </ImageBackground>
+          <Animated.View style={topViewValue.getLayout()}>
+            <Image source={image.loginSqr} style={styles.player} />
+          </Animated.View>
         </Animated.View>
-      </Animated.View>
-      <Animated.View style={[styles.bottom, bottomViewValue.getLayout()]}>
-        <Image source={image.profile1} style={styles.game} />
-        <Image source={image.profile2} style={styles.game} />
-        <Image source={image.profile3} style={styles.game} />
-      </Animated.View>
-      <Animated.View style={bottomViewValue.getLayout()}>
-        <Text style={styles.top}>{Login.top}</Text>
-        <Image source={image.player} style={styles.toplayer} />
-        <Image source={image.rectangle} style={styles.rectangle} />
-      </Animated.View>
-    </View>
+        <Animated.View style={[styles.bottom, bottomViewValue.getLayout()]}>
+          <Image source={image.profile1} style={styles.game} />
+          <Image source={image.profile2} style={styles.game} />
+          <Image source={image.profile3} style={styles.game} />
+        </Animated.View>
+        <Animated.View style={bottomViewValue.getLayout()}>
+          <Text style={styles.top}>{Login.top}</Text>
+          <Image source={image.player} style={styles.toplayer} />
+          <Image source={image.rectangle} style={styles.rectangle} />
+        </Animated.View>
+      </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -81,14 +83,14 @@ const styles = StyleSheet.create({
   },
   curve: {
     height: 300,
-    width: 465,
+    width: windowWidth,
     resizeMode: 'contain',
     position: 'absolute',
-    tintColor: '#000AFF',
+    tintColor: Colors.tint,
   },
   player: {
     height: 350,
-    width: 350,
+    width: windowWidth - 30,
     resizeMode: 'contain',
     marginVertical: 130,
   },
@@ -101,10 +103,9 @@ const styles = StyleSheet.create({
   },
   rectangle: {
     height: 100,
-    width: 420,
-    marginLeft: -5,
-    bottom: 20,
-    resizeMode: 'contain',
+    width: windowWidth + 20,
+    marginTop: 100,
+    position: 'absolute',
   },
   game: {
     height: 180,
@@ -113,29 +114,26 @@ const styles = StyleSheet.create({
   bottom: {
     flexDirection: 'row',
     justifyContent: 'center',
+    marginLeft: Platform.OS === 'ios ' ? 0 : 40,
   },
   top: {
-    marginLeft: 10,
     fontSize: 15,
     fontWeight: 'bold',
+    marginLeft: 10,
   },
   big: {
-    marginLeft: 10,
     fontSize: 12,
     fontWeight: 'bold',
     color: Colors.white,
-    top: 85,
-    // eslint-disable-next-line no-dupe-keys
-    marginLeft: 50,
+    top: Platform.OS === 'ios' ? 85 : 45,
+    marginLeft: 20,
   },
   wlcm: {
-    marginLeft: 10,
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.white,
-    top: 80,
-    // eslint-disable-next-line no-dupe-keys
-    marginLeft: 50,
+    top: Platform.OS === 'ios' ? 80 : 40,
+    marginLeft: 20,
   },
 });
 export default Loged;

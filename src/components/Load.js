@@ -1,6 +1,6 @@
 import AnimatedLottieView from 'lottie-react-native';
 import React, {useRef} from 'react';
-import {View, StyleSheet, Animated} from 'react-native';
+import {View, StyleSheet, Animated, Platform} from 'react-native';
 import {gif} from '../utils/constants/Index';
 
 const Loading = ({setFlag, flag}) => {
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    top: Platform.OS === 'ios' ? 0 : 70,
   },
   animate: {
     width: 98,

@@ -6,14 +6,10 @@
  */
 
 import React from 'react';
-import Index from './src/containers/screens/Index';
+import Index from './src/containers/Index';
 
-import Main from './src/containers/screens/Main';
 const App = () => {
-  return (
-    <Index />
-    // <Main />;
-  );
+  return <Index />;
 };
 
 export default App;

@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import Loading from '../../components/Load';
-import LoginSuccess from '../../components/LoginSucces';
-import MobileNum from '../../components/MobileNo';
-import OtpFun from '../../components/Otp';
+import Loading from '../components/Load';
+import LoginSuccess from '../components/LoginSucces';
+import MobileNum from '../components/MobileNo';
+import OtpFun from '../components/Otp';
 
 const Main = ({flag, setFlag}) => {
   const [number, setNumber] = useState(null);
   const [otpValue, setOtpValue] = useState(null);
-
+  console.log('flafds', flag);
   switch (flag) {
     case 0:
       return <MobileNum setNumber={setNumber} flag={flag} setFlag={setFlag} />;

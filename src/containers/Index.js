@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
-import {image} from '../../utils/constants/Index';
+import {Dimensions, Image, StyleSheet, View} from 'react-native';
+import {image} from '../utils/constants/Index';
 import Loged from './LogedIn';
 import Main from './Main';
+const windowWidth = Dimensions.get('window').width;
 
 const Index = () => {
   const [flag, setFlag] = useState(0);
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   },
   topImage: {
     position: 'absolute',
-    width: 420,
+    width: windowWidth,
     height: 490,
   },
   logo: {
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   },
   bottomImage: {
     position: 'absolute',
-    width: 420,
+    width: windowWidth,
     height: 560,
     bottom: 0,
     top: 280,
