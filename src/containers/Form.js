@@ -8,7 +8,6 @@ export const Form = () => {
   const [femaleFlag, setfemaleFlag] = useState(false);
   const [otherFlag, setotherFlag] = useState(false);
   const [data, setData] = useState();
-  console.log('data', data);
 
   const handleGender = selected => {
     switch (selected) {
@@ -30,7 +29,6 @@ export const Form = () => {
   };
 
   const onSubmit = value => {
-    console.log('value', value);
     setData(value);
   };
 
@@ -39,7 +37,7 @@ export const Form = () => {
       .string()
       .trim()
       .required('Phone number is required')
-      .matches(/(1)(\d){8,10}\b/, 'Enter a valid phone number')
+      .matches(/^(?!(0))[0-9]{9,10}\b/, 'Enter a valid phone number')
       .max(10, 'Phone number should be of maximum 10 length'),
     age: yup
       .number()
@@ -82,8 +80,9 @@ export const Form = () => {
               value={values.phno}
               keyboardType="phone-pad"
             />
-            {console.log('here', touched.phno)}
-            <Text style={styles.error}>{errors.phno}</Text>
+            {errors.phno && touched.phno ? (
+              <Text style={styles.error}>{errors.phno}</Text>
+            ) : null}
           </View>
           <View>
             <Text style={styles.label}>AGE</Text>
@@ -95,10 +94,14 @@ export const Form = () => {
               value={values.age}
               keyboardType="numeric"
             />
-            <Text style={styles.error}>{errors.age}</Text>
+            {errors.age && touched.age ? (
+              <Text style={styles.error}>{errors.age}</Text>
+            ) : null}
           </View>
           <Text style={styles.label}>GENDER</Text>
-          <Text style={styles.error}>{errors.gender}</Text>
+          {errors.gender && touched.gender ? (
+            <Text style={styles.error}>{errors.gender}</Text>
+          ) : null}
           <View style={styles.gender}>
             <Text
               onPress={() => {
@@ -136,7 +139,9 @@ export const Form = () => {
               onBlur={handleBlur('country')}
               value={values.country}
             />
-            <Text style={styles.error}>{errors.country}</Text>
+            {errors.country && touched.country ? (
+              <Text style={styles.error}>{errors.country}</Text>
+            ) : null}
           </View>
           <View>
             <Text style={styles.label}>PINCODE</Text>
@@ -148,7 +153,9 @@ export const Form = () => {
               value={values.pincode}
               keyboardType="numeric"
             />
-            <Text style={styles.error}>{errors.pincode}</Text>
+            {errors.pincode && touched.pincode ? (
+              <Text style={styles.error}>{errors.pincode}</Text>
+            ) : null}
           </View>
           <Button onPress={handleSubmit} title="Submit" />
         </View>
