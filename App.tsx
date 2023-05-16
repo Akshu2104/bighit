@@ -6,12 +6,21 @@
  */
 
 import React from 'react';
-import {Form} from './src/containers/Form';
-import Index from './src/containers/Index';
-
+// import {Provider} from 'react-redux';
+// import {Form} from './src/containers/Form';
+// import Index from './src/containers/Index';
+// import Storing from './src/containers/Storing';
+// import configStore from './src/redux/store';
+import Search from './src/containers/Search';
 const App = () => {
   // return <Index />;
-  return <Form />;
+  return (
+    // <Form />
+    // <Provider store={store}>
+    //   <Storing />
+    // </Provider>
+    <Search />
+  );
 };
 
 export default App;

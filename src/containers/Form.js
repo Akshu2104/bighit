@@ -99,9 +99,6 @@ export const Form = () => {
             ) : null}
           </View>
           <Text style={styles.label}>GENDER</Text>
-          {errors.gender && touched.gender ? (
-            <Text style={styles.error}>{errors.gender}</Text>
-          ) : null}
           <View style={styles.gender}>
             <Text
               onPress={() => {
@@ -131,6 +128,9 @@ export const Form = () => {
               Other
             </Text>
           </View>
+          {errors.gender && touched.gender ? (
+            <Text style={styles.error}>{errors.gender}</Text>
+          ) : null}
           <View>
             <Text style={styles.label}>COUNTRY</Text>
             <TextInput
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderBottomWidth: 1,
-    marginVertical: 10,
+    marginBottom: 10,
     padding: 5,
   },
   gender: {
