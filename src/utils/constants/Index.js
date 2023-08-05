@@ -16,3 +16,9 @@ export const gif = {
   blueTriangle: require('../../assets/json/lf30_editor_qfhlc5be.json'),
   greenTick: require('../../assets/json/95029-success.json'),
 };
+
+export const cards = {
+  plus: require('../../assets/images/feature1.png'),
+  listing: require('../../assets/images/feature2.png'),
+  agent: require('../../assets/images/feature3.png'),
+};

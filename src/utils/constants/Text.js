@@ -16,7 +16,7 @@ export const OTP = {
 };
 export const Login = {
   loged: 'Login Success!',
-  top: '⭐️ Top Players on BigHit Leaderboard',
+  top: 'Top Players on BigHit Leaderboard',
   welcome: 'Welcome To BigHit',
   big: 'India’s biggest sports platform',
 };
